@@ -1,0 +1,82 @@
+{
+  "maindb": [
+    {
+      "id": 0,
+      "word": "butterfly",
+      "translate": "der Schmetterling",
+      "tags": "animal",
+      "picture": "pictures/butterfly.jpg",
+      "audio": "audio/En-uk-a_butterfly.ogg.mp3"
+    },
+    {
+      "id": 1,
+      "word": "cat",
+      "translate": "die Katze",
+      "tags": "animal",
+      "picture": "pictures/cat.jpg",
+      "audio": "audio/En-uk-a_cat.ogg.mp3"
+    },
+    {
+      "id": 2,
+      "word": "dog",
+      "translate": "der Hund",
+      "tags": "animal",
+      "picture": "pictures/dog.jpg",
+      "audio": "audio/En-uk-a_dog.ogg.mp3"
+    },
+    {
+      "id": 3,
+      "word": "grasshopper",
+      "translate": "die Heuschrecke",
+      "tags": "animal",
+      "picture": "pictures/grasshopper.jpg",
+      "audio": "audio/En-uk-grasshopper.ogg.mp3"
+    },
+    {
+      "id": 4,
+      "word": "sheep",
+      "translate": "das Schaf",
+      "tags": "animal",
+      "picture": "pictures/sheep.jpg",
+      "audio": "audio/En-uk-a_sheep.ogg.mp3"
+    }
+  ],
+  "userb": [
+    {
+      "b1": [],
+      "b2": [],
+      "b3": [],
+      "id": 1
+    },
+    {
+      "b1": [],
+      "b2": [],
+      "b3": [],
+      "id": 2
+    },
+    {
+      "b1": [],
+      "b2": [],
+      "b3": [],
+      "id": 3
+    },
+    {
+      "b1": [],
+      "b2": [],
+      "b3": [],
+      "id": 4
+    },
+    {
+      "b1": [],
+      "b2": [],
+      "b3": [],
+      "id": 5
+    },
+    {
+      "b1": [],
+      "b2": [],
+      "b3": [],
+      "id": 6
+    }
+  ]
+}
