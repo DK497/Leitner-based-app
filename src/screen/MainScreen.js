@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState,useEffect } from 'react'
 import { View, Text, StyleSheet, Button, TouchableOpacity } from 'react-native';
 import { Context } from '../context/DataContext'
 import { Card } from 'react-native-elements'
@@ -8,11 +8,26 @@ import { baseUrl } from '../api/baseUrl'
 const MainScreen = ({ navigation }) => {
     const { state } = useContext(Context)
     const [card, setcard] = useState('')
-    const [qn, setqn] = useState(b1[0])
+    const [qn, setqn] = useState(state.userd.b1[0])
 
-    const s=state
-    let b1=[],b2=[],b3=[],comb,iter_v,g_index=0
+    const s=state.ques
+    let b1=state.userd.b1,b2=state.userd.b1,b3=state.userd.b1,comb,iter_v,g_index
 
+    const set_istate=()=>{
+        iter_v=1,g_index=0
+    }
+useEffect(() => {
+    set_istate()
+
+    const listener = navigation.addListener('didFocus', () => {
+        set_istate()
+      })
+  
+      return () => {
+        listener.remove()
+      }
+    
+}, [])
     const array_c_manipulation=(id)=>{
       if(b2.includes(id)){
           b2=b2.filter((i)=>i!==id)
@@ -34,20 +49,15 @@ const MainScreen = ({ navigation }) => {
            } 
 
     }
-
-    const handlecorrect=(id)=>{
+const handlecorrect=(id)=>{
         array_c_manipulation(id)
         setcard('')
     }
-    const handlewrong=()=>{
+const handlewrong=()=>{
          array_w_manipulation(id)
-    }
- const array_istate=()=>{
-        for(let i=0;i<state.length;i++)
-         {  b1[i]=i
-           }
-         iter_v=1
-    }
+         setcard('')
+    }   
+
  const array_provider=(iter_v)=>{
         let final_a
 
@@ -71,15 +81,28 @@ const MainScreen = ({ navigation }) => {
     }
 
  const handleq=()=>{
+    if(g_index===0)
+    {
     comb=array_provider(iter_v)
-    
-     g_index+=1
-       setcard('')
+    }
+   let limit=comb.length
+      g_index=g_index+1
+      setcard('')
+      if(g_index===limit)
+      {
+        iter_v+=1
+         g_index=0
+        comb=array_provider(iter_v)
+      }
 
      setqn(comb[g_index])   
     //    qn<4?setqn(qn+1):setqn(qn-4)
-       console.log(qn)
+       
     }
+    console.log("heya",comb)
+    console.log('g_index',g_index)
+    console.log('iter',g_index)
+
 
 
     if (s ===[]) {

@@ -6,10 +6,12 @@ import { baseUrl } from '../api/baseUrl'
 
 
 const LoadScreen = ({ navigation }) => {
-    const { state, getq,postu } = useContext(Context)
+    const { state,getq,postu,getu } = useContext(Context)
 
     useEffect(() => {
+        getu()
         getq()
+      
         const listener = navigation.addListener('didFocus', () => {
             getq()
           })
@@ -19,15 +21,18 @@ const LoadScreen = ({ navigation }) => {
           }
 
     }, [])
-
+ 
   const handleuser=()=>{
-      postu([],[],[],navigation.navigate('mainFlow'))
+    //   postu([],[],[],navigation.navigate('mainFlow'))
+  
+   navigation.navigate('mainFlow')
+     
      
   }
     return (
         <View style={{ top: 40 }}>
             <Text style={{ textAlign: 'center', fontSize: 30, fontFamily: 'serif' }}>Text we will learn to translate</Text>
-            <FlatList data={state} keyExtractor={(i) => i.id}
+            <FlatList data={state.ques} keyExtractor={(i) => i.id}
                 renderItem={({ item }) => {
                     return (
 
