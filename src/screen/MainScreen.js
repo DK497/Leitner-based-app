@@ -58,34 +58,38 @@ const handlewrong=(id)=>{
     }   
 
  const array_provider=(iter_v)=>{
-        let final_a
-
+    console.log("heya")
         if(iter_v%2===0){
-            final_a=b1.concat(b2)
-           return final_a
-        }
+            console.log("heya2")
+          return b1.concat(b2)
+         }
+
         else if (iter_v%3===0){
-            final_a=b1.concat(b3)
-            return final_a
-        }
+            console.log("heya3")
+            return b1.concat(b3)
+         }
+
         else if(iter_v%2===0 && iter_v%3===0){
-            final_a=b1.concat(b2)
-            final_a=final_a.concat(b3)
-            return final_a
+            console.log("heya4")
+            return b1.concat(b2).concat(b3)
         }
+
         else{
             return b1
         }
         
     }
-const [comb, setcomb] = useState(array_provider(iter_v))
+
+const [comb, setcomb] = useState(b1)
     
 
  
-console.log('-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-=-=')
+console.log('-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-=-==-=-=-=-=')
+console.log("itr_v",iter_v)
 console.log("comb",comb)
 console.log("g_index",g_index)
-console.log("itr_v",iter_v)
+console.log('comb.length',comb.length)
+
 // console.log("qn",qn)
 console.log("b1",b1)
 console.log("b2",b2)
@@ -94,24 +98,39 @@ console.log("b3",b3)
 
 
  const handleq=()=>{
-    console.log("g_index 2nd",g_index)
+   
     setcard('')
     setg_index(g_index+1)
     
-if(g_index===comb.length-1)
+if(g_index===comb.length)
       { // iter_v+=1
         setiter_v(iter_v+1)
-        setcomb(array_provider(iter_v))
+        let k=iter_v+1
+ console.log("itr_v 2nd",iter_v)
+      if(k%2===0){
+            setcomb(b1.concat(b2))
+        }
+       else if(k%3===0){
+            setcomb(b1.concat(b3))
+        }
+       else if(k%2===0&&k%3){
+            setcomb(b1.concat(b2).concat(b3))
+        }
+        else{
+            setcomb(b1)
+        }
+       
         //  g_index=0
         setg_index(0)
-        // comb=array_provider(iter_v)
+        
        
     }
 
  //    qn<4?setqn(qn+1):setqn(qn-4)
          
-
+        if(g_index<5){
          setqn(comb[g_index])
+        }
        
     }
     
