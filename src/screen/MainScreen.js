@@ -6,46 +6,45 @@ import { baseUrl } from '../api/baseUrl'
 
 
 const MainScreen = ({ navigation }) => {
-    const { state } = useContext(Context)
+    const { state:{b1,b2,b3,ques},putu,setb1,setb2,setb3 } = useContext(Context)
     const [card, setcard] = useState('')
-    const [qn, setqn] = useState(state.userd.b1[0])
-
-    const s=state.ques
-    let b1=state.userd.b1,b2=state.userd.b1,b3=state.userd.b1,comb,iter_v,g_index
-
-    const set_istate=()=>{
-        iter_v=1,g_index=0
-    }
-useEffect(() => {
-    set_istate()
-
-    const listener = navigation.addListener('didFocus', () => {
-        set_istate()
-      })
-  
-      return () => {
-        listener.remove()
-      }
+   
+    const [qn, setqn] = useState(b1[0])
+ 
     
-}, [])
+    const [iter_v, setiter_v] = useState(1)
+    
+    const [g_index, setg_index] = useState(0)
+
+  
+
+    const s=ques
+    
+
+    
     const array_c_manipulation=(id)=>{
       if(b2.includes(id)){
-          b2=b2.filter((i)=>i!==id)
-          b3.push(id)
+        //   b2=b2.filter((i)=>i!==id)
+        setb2(b2.filter((i)=>i!==id))
+          setb3(b3.concat(id))
        } 
        if(b1.includes(id)){
-        b1=b1.filter((i)=>i!==id)
-        b2.push(id)
+        // b1=b1.filter((i)=>i!==id)
+        setb1(b1.filter((i)=>i!==id))
+        setb2(b2.concat(id))
        } 
 }
     const array_w_manipulation=(id)=>{
         if(b2.includes(id)){
-            b2=b2.filter((i)=>i!==id)
-            b1.push(id)
+            // b2=b2.filter((i)=>i!==id)
+            setb2(b2.filter(i=>i!==id))
+            // b1.push(id)
+            setb1(b1.concat(id))
         }
         if(b3.includes(id)){
-            b3=b3.filter((i)=>i!==id)
-            b1.push(id)
+            // b3=b3.filter((i)=>i!==id)
+            setb3(b3.filter((i)=>i!==id))
+            setb1(b1.concat(id))
            } 
 
     }
@@ -53,7 +52,7 @@ const handlecorrect=(id)=>{
         array_c_manipulation(id)
         setcard('')
     }
-const handlewrong=()=>{
+const handlewrong=(id)=>{
          array_w_manipulation(id)
          setcard('')
     }   
@@ -79,33 +78,44 @@ const handlewrong=()=>{
         }
         
     }
+const [comb, setcomb] = useState(array_provider(iter_v))
+    
+
+ 
+console.log('-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-=-=')
+console.log("comb",comb)
+console.log("g_index",g_index)
+console.log("itr_v",iter_v)
+// console.log("qn",qn)
+console.log("b1",b1)
+console.log("b2",b2)
+console.log("b3",b3)
+// console.log("comb[g_index]",comb[g_index])                         
+
 
  const handleq=()=>{
-    if(g_index===0)
-    {
-    comb=array_provider(iter_v)
-    }
-   let limit=comb.length
-      g_index=g_index+1
-      setcard('')
-      if(g_index===limit)
-      {
-        iter_v+=1
-         g_index=0
-        comb=array_provider(iter_v)
-      }
-
-     setqn(comb[g_index])   
-    //    qn<4?setqn(qn+1):setqn(qn-4)
+    console.log("g_index 2nd",g_index)
+    setcard('')
+    setg_index(g_index+1)
+    
+if(g_index===comb.length-1)
+      { // iter_v+=1
+        setiter_v(iter_v+1)
+        setcomb(array_provider(iter_v))
+        //  g_index=0
+        setg_index(0)
+        // comb=array_provider(iter_v)
        
     }
-    console.log("heya",comb)
-    console.log('g_index',g_index)
-    console.log('iter',g_index)
 
+ //    qn<4?setqn(qn+1):setqn(qn-4)
+         
 
-
-    if (s ===[]) {
+         setqn(comb[g_index])
+       
+    }
+    
+if (s ===[]) {
         return (
             <View style={{ flex: 1 }}>
                 <Text style={styles.header}>Leitner FlashCard Game</Text>
@@ -115,6 +125,7 @@ const handlewrong=()=>{
     }
     else {
         const bp = s.find((bl) => bl.id === qn)
+        console.log("bp.id",bp.id)
         return (
             <View style={{ flex: 1 }}>
                 <Text style={styles.header}>Leitner FlashCard Game</Text>
@@ -131,7 +142,13 @@ const handlewrong=()=>{
                     onPress={()=>handlewrong(bp.id)}/>
                     
                  </View>
-                 <Button title="Go to next question"  onPress={()=> handleq()}/>
+                 <View style={{marginBottom:10,flexDirection:'column',justifyContent:'space-between',alignSelf:'center'}}>
+                 <Button title="Go to next question"  onPress={()=> handleq()}/> 
+                 </View>
+                 <View style={{flexDirection:'column',justifyContent:'space-between',alignSelf:'center'}} >
+                 <Button title="Save Progress"  onPress={()=>putu(b1,b2,b3)}/>
+                 </View>
+                 
                 </Card>
                 
                 <Button title="got to Start" onPress={() => navigation.navigate('Load')} />
@@ -149,4 +166,6 @@ const styles = StyleSheet.create({
     },
     word: { fontSize: 20, margin: 10, fontStyle: 'italic' }
 })
+
+
 export default MainScreen;
