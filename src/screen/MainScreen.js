@@ -151,7 +151,7 @@ if (s ===[]) {
                  
                 </Card>
                 
-                <Button title="got to Start" onPress={() => navigation.navigate('Load')} />
+                <Button title="Signout" onPress={() => navigation.navigate('Signin')} />
           
             </View>
         )
