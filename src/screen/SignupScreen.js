@@ -12,7 +12,7 @@ const SignupScreen = () => {
  return (
         <View style={styles.container}>
       
-            <AuthForm headerText='Sign Up for Tracker' 
+            <AuthForm headerText='Sign Up ' 
              onSubmit={email=>postu([0,1,2,3,4],[],[],email)} 
             sbuttontext="SignUp"/>
             

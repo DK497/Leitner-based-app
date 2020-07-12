@@ -10,7 +10,7 @@ const SigninScreen = ({navigation}) => {
     return (
        <View style={styles.container}>
       
-            <AuthForm headerText='Sign In for Tracker' 
+            <AuthForm headerText='Sign In ' 
             onSubmit={(email)=>navigation.navigate('Load',{email:email})}  
             
             sbuttontext="SignIn"/>
