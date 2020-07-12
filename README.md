@@ -2,6 +2,12 @@
 #### The App uses Leitner System at it's core to provide fast learning.This app provides German translation of English word
 #### This app uses 3 boxes: 1st (Hard) 2nd (Medium) 3rd (Easy).
 ## UI for user interface:
+<img src='assets/Signin.jpeg' width="300" />          <img src='assets/Signup.jpeg' width="300" />
+
+<img src='assets/Loading.jpeg'  width="300" /> <img src='assets/Main.jpeg' width="300"  /> <img src='assets/Progress.jpeg' align="right" width="300" />
+
+
+
 
 # Getting started with the project
 #### To get started do a git clone of the repository.Now get inside project folder and run *"npm install"* from cmd to download all dependencies into project.
