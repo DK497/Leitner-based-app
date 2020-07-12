@@ -7,12 +7,14 @@ import { baseUrl } from '../api/baseUrl'
 
 const LoadScreen = ({ navigation }) => {
     const { state,getq,postu,getu } = useContext(Context)
+    const email=navigation.getParam('email')
 
     useEffect(() => {
-        getu()
+        getu(email)
         getq()
       
         const listener = navigation.addListener('didFocus', () => {
+            getu(email)
             getq()
           })
       
@@ -42,6 +44,10 @@ const LoadScreen = ({ navigation }) => {
                             bottomDivider />)
                 }} />
             <Button title="Press to Learn" onPress={() => handleuser()} />
+            <View style={{margin:20}}>
+            <Button title="Go Back" onPress={() => navigation.navigate('Signin')} />  
+            </View>
+           
         </View>
     )
 }

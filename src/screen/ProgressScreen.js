@@ -1,6 +1,8 @@
 import React,{useContext} from 'react';
 import { View,Text,StyleSheet } from 'react-native';
 import { Context } from '../context/DataContext'
+import Icon from 'react-native-vector-icons/FontAwesome'
+
 
 const ProgressScreen = () => {
     const { state:{b1,b2,b3} } = useContext(Context)
@@ -19,4 +21,11 @@ const styles=StyleSheet.create({
 
     }
 })
+
+ProgressScreen.navigationOptions=()=>{
+    return{title:"Progress",fontSize:30,
+    tabBarIcon:<Icon name="tasks" size={30} color="#900" />
+  
+    }
+  }
 export default ProgressScreen;

@@ -3,12 +3,13 @@ import { View, Text, StyleSheet, Button, TouchableOpacity } from 'react-native';
 import { Context } from '../context/DataContext'
 import { Card } from 'react-native-elements'
 import { baseUrl } from '../api/baseUrl'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 
 const MainScreen = ({ navigation }) => {
-    const { state:{b1,b2,b3,ques},putu,setb1,setb2,setb3 } = useContext(Context)
+    const { state:{b1,b2,b3,ques,id,email},putu,setb1,setb2,setb3 } = useContext(Context)
     const [card, setcard] = useState('')
-   
+   console.log("b1",b1)
     const [qn, setqn] = useState(b1[0])
  
     
@@ -16,7 +17,7 @@ const MainScreen = ({ navigation }) => {
     
     const [g_index, setg_index] = useState(0)
 
-  
+    const [comb, setcomb] = useState(b1)
 
     const s=ques
     
@@ -52,35 +53,15 @@ const handlecorrect=(id)=>{
         array_c_manipulation(id)
         setcard('')
     }
+
 const handlewrong=(id)=>{
          array_w_manipulation(id)
          setcard('')
     }   
 
- const array_provider=(iter_v)=>{
-    console.log("heya")
-        if(iter_v%2===0){
-            console.log("heya2")
-          return b1.concat(b2)
-         }
+ 
 
-        else if (iter_v%3===0){
-            console.log("heya3")
-            return b1.concat(b3)
-         }
 
-        else if(iter_v%2===0 && iter_v%3===0){
-            console.log("heya4")
-            return b1.concat(b2).concat(b3)
-        }
-
-        else{
-            return b1
-        }
-        
-    }
-
-const [comb, setcomb] = useState(b1)
     
 
  
@@ -165,7 +146,7 @@ if (s ===[]) {
                  <Button title="Go to next question"  onPress={()=> handleq()}/> 
                  </View>
                  <View style={{flexDirection:'column',justifyContent:'space-between',alignSelf:'center'}} >
-                 <Button title="Save Progress"  onPress={()=>putu(b1,b2,b3)}/>
+                 <Button title="Save Progress"  onPress={()=>putu(b1,b2,b3,id,email)}/>
                  </View>
                  
                 </Card>
@@ -186,5 +167,10 @@ const styles = StyleSheet.create({
     word: { fontSize: 20, margin: 10, fontStyle: 'italic' }
 })
 
-
+MainScreen.navigationOptions=()=>{
+    return{title:"Main",fontSize:30,
+    tabBarIcon:<Icon name="home" size={30} color="#900" />
+  
+    }
+  }
 export default MainScreen;

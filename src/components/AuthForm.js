@@ -5,8 +5,7 @@ import {Text,Input,Button  } from 'react-native-elements';
 
 const AuthForm = ({headerText,onSubmit,sbuttontext}) => {
     const [email, setemail] = useState('')
-    const [password, setpassword] = useState('')
-    
+   
     return (
     <>
         
@@ -15,12 +14,8 @@ const AuthForm = ({headerText,onSubmit,sbuttontext}) => {
             <Input label="Email" autoCapitalize="none" autoCorrect={false}
                 value={email} onChangeText={(ne) => setemail(ne)} />
          
-            <Input secureTextEntry={true} label="Password" autoCapitalize="none" 
-                autoCorrect={false}
-                value={password} onChangeText={(np) => setpassword(np)} />
-           
-           <Button title={sbuttontext} 
-                onPress={() => onSubmit({ email, password })} />
+            <Button title={sbuttontext} 
+                onPress={() => onSubmit(email)} />
             
     </>
         

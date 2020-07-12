@@ -10,15 +10,17 @@ import ProgressScreen from './src/screen/ProgressScreen'
 import MainScreen from './src/screen/MainScreen'
 import {Provider} from './src/context/DataContext'
 import LoadScreen from './src/screen/LoadScreen'
+import { setNavigator } from './src/components/navigationRef'
 
 
 const switchNavigator = createSwitchNavigator({
  
-  // loginFlow: createStackNavigator({
-  //   Signup: SignupScreen,
-  //   Signin: SigninScreen,
+  loginFlow: createStackNavigator({
+    
+    Signin: SigninScreen,
+    Signup: SignupScreen
 
-  // }),
+  }),
   Load:LoadScreen,
   mainFlow: createBottomTabNavigator({
     Main:MainScreen,
@@ -35,7 +37,7 @@ export default () => {
 
   return (
    <Provider>
-      <App />
+      <App ref={(navigator) => { setNavigator(navigator) }} />
    </Provider>
      )
 }
