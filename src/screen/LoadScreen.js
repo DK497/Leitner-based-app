@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react'
-import { View, Text, Button, FlatList } from 'react-native'
+import { ScrollView,View, Text, Button, FlatList } from 'react-native'
 import { ListItem } from 'react-native-elements'
 import { Context } from '../context/DataContext'
 import { baseUrl } from '../api/baseUrl'
@@ -32,7 +32,8 @@ const LoadScreen = ({ navigation }) => {
      
   }
     return (
-        <View style={{ top: 40 }}>
+        <ScrollView style={{ top: 40}}>
+            <View >
             <Text style={{ textAlign: 'center', fontSize: 30, fontFamily: 'serif' }}>Text we will learn to translate</Text>
             <FlatList data={state.ques} keyExtractor={(i) => i.id}
                 renderItem={({ item }) => {
@@ -44,11 +45,12 @@ const LoadScreen = ({ navigation }) => {
                             bottomDivider />)
                 }} />
             <Button title="Press to Learn" onPress={() => handleuser()} />
-            <View style={{margin:20}}>
+            </View>
+            <View style={{margin:5}}>
             <Button title="Go Back" onPress={() => navigation.navigate('Signin')} />  
             </View>
            
-        </View>
+        </ScrollView>
     )
 }
 

@@ -2,155 +2,95 @@
   "maindb": [
     {
       "id": 0,
-      "word": "butterfly",
-      "translate": "der Schmetterling",
+      "word": "0",
+      "translate": "Zero",
       "tags": "animal",
-      "picture": "pictures/butterfly.jpg",
-      "audio": "audio/En-uk-a_butterfly.ogg.mp3"
+      "picture": "pictures/butterfly.jpg"
     },
     {
       "id": 1,
-      "word": "cat",
-      "translate": "die Katze",
+      "word": "1",
+      "translate": "One",
       "tags": "animal",
-      "picture": "pictures/cat.jpg",
-      "audio": "audio/En-uk-a_cat.ogg.mp3"
+      "picture": "pictures/cat.jpg"
     },
     {
       "id": 2,
-      "word": "dog",
-      "translate": "der Hund",
+      "word": "2",
+      "translate": "Two",
       "tags": "animal",
-      "picture": "pictures/dog.jpg",
-      "audio": "audio/En-uk-a_dog.ogg.mp3"
+      "picture": "pictures/dog.jpg"
     },
     {
       "id": 3,
-      "word": "grasshopper",
-      "translate": "die Heuschrecke",
+      "word": "3",
+      "translate": "Three",
       "tags": "animal",
-      "picture": "pictures/grasshopper.jpg",
-      "audio": "audio/En-uk-grasshopper.ogg.mp3"
+      "picture": "pictures/grasshopper.jpg"
     },
     {
       "id": 4,
-      "word": "sheep",
-      "translate": "das Schaf",
+      "word": "4",
+      "translate": "Four",
       "tags": "animal",
-      "picture": "pictures/sheep.jpg",
-      "audio": "audio/En-uk-a_sheep.ogg.mp3"
+      "picture": "pictures/sheep.jpg"
+    },
+    {
+      "id": 5,
+      "word": "5",
+      "translate": "Five",
+      "tags": "animal",
+      "picture": "pictures/spider.jpg"
+    },
+    {
+      "id": 6,
+      "word": "6",
+      "translate": "Six",
+      "tags": "animal",
+      "picture": "pictures/tiger.jpg"
+    },
+    {
+      "id": 7,
+      "word": "7",
+      "translate": "Seven",
+      "tags": "animal",
+      "picture": "pictures/toad.jpg"
+    },
+    {
+      "id": 8,
+      "word": "8",
+      "translate": "Eight",
+      "tags": "animal",
+      "picture": "pictures/vulture.jpg"
+    },
+    {
+      "id": 9,
+      "word": "9",
+      "translate": "Nine",
+      "tags": "animal",
+      "picture": "pictures/warthog.jpg"
     }
   ],
   "userb": [
     {
-      "email": "dk",
+      "email": "qwe",
       "b1": [
-        4
+        6,
+        7,
+        8,
+        9,
+        5
       ],
       "b2": [
-        0,
-        1,
-        2,
-        3
-      ],
-      "b3": [],
-      "id": 1
-    },
-    {
-      "email": "pk",
-      "b1": [
-        0
-      ],
-      "b2": [
-        1,
         2,
         3,
         4
-      ],
-      "b3": [],
-      "id": 2
-    },
-    {
-      "email": "sk",
-      "b1": [
-        0
-      ],
-      "b2": [
-        1
       ],
       "b3": [
-        2,
-        3,
-        4
-      ],
-      "id": 3
-    },
-    {
-      "email": "yu",
-      "b1": [
-        2,
-        3,
-        4
-      ],
-      "b2": [
         0,
         1
       ],
-      "b3": [],
-      "id": 4
-    },
-    {
-      "email": "mo",
-      "b1": [
-        0,
-        2,
-        3,
-        4
-      ],
-      "b2": [
-        1
-      ],
-      "b3": [],
-      "id": 5
-    },
-    {
-      "email": "bk",
-      "b1": [
-        1,
-        2,
-        3,
-        4,
-        0
-      ],
-      "b2": [],
-      "b3": [],
-      "id": 6
-    },
-    {
-      "email": "lj",
-      "b1": [
-        1,
-        2,
-        3,
-        4,
-        0
-      ],
-      "b2": [],
-      "b3": [],
-      "id": 7
-    },
-    {
-      "email": "roxanne",
-      "b1": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ],
-      "b2": [],
-      "b3": [],
-      "id": 8
+      "id": 1
     }
   ]
 }

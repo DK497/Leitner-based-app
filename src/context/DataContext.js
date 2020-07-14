@@ -16,7 +16,10 @@ const dataReducer=(state,action)=>{
         case 'get_q':
              { return {...state,ques:action.payload}}
         case 'get_u':{
-         return {...state,email:action.payload.email,id:action.payload.id,b1:action.payload.b1,b2:action.payload.b2,b3:action.payload.b3}
+         
+         return {...state,email:action.payload.email,
+                id:action.payload.id,b1:action.payload.b1,
+                b2:action.payload.b2,b3:action.payload.b3}
             }
         default:{
                 return state
@@ -54,10 +57,9 @@ const getu=(dispatch)=>{
     
       const res= await jsonServer.get(`userb?q=${email}`)
       dispatch({type:'get_u',payload:res.data[0]})
-     console.log('email',typeof res.data[0].id)
-   
+
       
-    }
+   }
 }
 
 const getq=(dispatch)=>{
@@ -77,4 +79,4 @@ const postu=(dispatch)=>{
 }
 
 
-export const {Context,Provider}=createDataContext(dataReducer,{getq,postu,getu,putu,setb1,setb2,setb3},{ques:[],b1:[],b2:[],b3:[],id:null,email:""})
+export const {Context,Provider}=createDataContext(dataReducer,{getq,postu,getu,putu,setb1,setb2,setb3},{ques:[],b1:[],b2:[],b3:[],k:[],id:null,email:""})

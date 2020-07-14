@@ -6,7 +6,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import SigninScreen from './src/screen/SigninScreen'
 import SignupScreen from './src/screen/SignupScreen'
-import ProgressScreen from './src/screen/ProgressScreen'
+
 import MainScreen from './src/screen/MainScreen'
 import {Provider} from './src/context/DataContext'
 import LoadScreen from './src/screen/LoadScreen'
@@ -23,8 +23,8 @@ const switchNavigator = createSwitchNavigator({
   }),
   Load:LoadScreen,
   mainFlow: createBottomTabNavigator({
-    Main:MainScreen,
-    Progress:ProgressScreen,
+    Main:MainScreen
+   
 
   })
 })

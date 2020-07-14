@@ -13,7 +13,7 @@ const SignupScreen = () => {
         <View style={styles.container}>
       
             <AuthForm headerText='Sign Up ' 
-             onSubmit={email=>postu([0,1,2,3,4],[],[],email)} 
+             onSubmit={email=>postu([0,1,2,3,4,5,6,7,8,9],[],[],email)} 
             sbuttontext="SignUp"/>
             
        <NavLink text="Already Registered ,Use Signin instead" routeName='Signin'/>
