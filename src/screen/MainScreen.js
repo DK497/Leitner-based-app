@@ -36,6 +36,7 @@ const MainScreen = ({ navigation }) => {
             setb1(b1.filter((i) => i !== id))
             setb2(b2.concat(id))
         }
+       
     }
     const array_w_manipulation = (id) => {
         if (b2.includes(id)) {
@@ -49,21 +50,24 @@ const MainScreen = ({ navigation }) => {
             setb3(b3.filter((i) => i !== id))
             setb1(b1.concat(id))
         }
+        
 
     }
-    const handlecorrect = (id) => {
-        array_c_manipulation(id)
+    const handlecorrect = (kid) => {
+        array_c_manipulation(kid)
+       setcard('')
+       
+    }
+
+    const handlewrong = (kid) => {
+        array_w_manipulation(kid)
         setcard('')
-    }
-
-    const handlewrong = (id) => {
-        array_w_manipulation(id)
-        setcard('')
+        
     }
 
 
 
-
+   
 
 
 
@@ -106,28 +110,31 @@ const MainScreen = ({ navigation }) => {
 
     }
      
-    const hanc=(bid,b1, b2, b3, id, email)=>{
+    const hanc=(bid)=>{
         handlecorrect(bid)
-        putu(b1, b2, b3, id, email)
+        // putu(b1, b2, b3, id, email)
      
 
     }
-    const hanw=(bid,b1, b2, b3, id, email)=>{
+    const hanw=(bid)=>{
         handlewrong(bid)
-        putu(b1, b2, b3, id, email)
+        // putu(b1, b2, b3, id, email)
+       
     }
-    console.log('-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-=-==-=-=-=-=')
-    console.log("itr_v", iter_v)
+    // console.log('-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-=-==-=-=-=-=')
+    // console.log("itr_v", iter_v)
     
-    console.log("comb", comb)
-    console.log("g_index", g_index)
-    console.log('comb.length', comb.length)
-    console.log("comb[g_index] ",comb[g_index])
+    // console.log("comb", comb)
+    // console.log("g_index", g_index)
+    // console.log('comb.length', comb.length)
+    // console.log("comb[g_index] ",comb[g_index])
     
-    console.log("b1", b1)
-    console.log("b2", b2)
-    console.log("b3", b3)
-
+    // console.log("b1", b1)
+    // console.log("b2", b2)
+    // console.log("b3", b3)
+ const updatedb=(b1, b2, b3, id, email)=>{
+    putu(b1, b2, b3, id, email)
+ }
 
     if (ques === []) {
         return (
@@ -159,10 +166,13 @@ const MainScreen = ({ navigation }) => {
                     </TouchableOpacity>
                     <View style={{ flexDirection: 'row', marginBottom: 10, justifyContent: 'space-between' }} >
                         <Button title="press if you knew it"
-                            onPress={() => hanc(bp.id,b1, b2, b3, id, email)} />
+                            onPress={() => hanc(bp.id)} />
                         <Button title="press if you didn't"
-                            onPress={() => hanw(bp.id,b1, b2, b3, id, email)} />
-                        
+                            onPress={() => hanw(bp.id)} />
+                     
+                    </View>
+                    <View style={{ marginBottom: 10, flexDirection: 'column', justifyContent: 'space-between', alignSelf: 'center' }}>
+                        <Button title="Save progress" onPress={() =>updatedb(b1, b2, b3, id, email)} />
                     </View>
                     <View style={{ marginBottom: 10, flexDirection: 'column', justifyContent: 'space-between', alignSelf: 'center' }}>
                         <Button title="Go to next question" onPress={() => handleq()} />
@@ -171,7 +181,7 @@ const MainScreen = ({ navigation }) => {
                   
                  <View>
                   <Text style={styles.t}>iteration_value:{iter_v}</Text>
-                  <Text style={styles.t}>k:{k}</Text>
+                  
                   <Text style={styles.t}>g_index:{g_index}</Text>
                   <Text style={styles.t}>question under revision:{comb}</Text>
                  <Text style={styles.t}>Box1(Dificult) contents id:
