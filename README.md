@@ -1,4 +1,4 @@
-# Leitner-System-for-Alfred-Team
+# Leitner-System
 #### The App uses Leitner System at it's core to provide fast learning.This app provides German translation of English word
 #### This app uses 3 boxes: 1st (Hard) 2nd (Medium) 3rd (Easy).
 ## UI for user interface:
